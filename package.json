@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Rickyfeng7/friendfinder/issues"
   },
-  "homepage": "https://github.com/Rickyfeng7/friendfinder#readme"
+  "homepage": "https://github.com/Rickyfeng7/friendfinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "my-sql": "^1.2.15"
+  }
 }
