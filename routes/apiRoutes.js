@@ -16,11 +16,11 @@ module.exports = function(app){
 	});
 	app.post("/api/friends", function(req, res){
 		res.json(friends)
-		// console.log(res.body)
+		console.log(res.body)
 	});
 };
 function bestie(finder, assign){
-	for(var i=0; i<friends.lengthl; i++){
+	for(var i=0; i<friends.length; i++){
 		difference=0;
 		for(var j=0; j<friends[i]['score[]'].length; j++){
 			difference=difference+Math.abs(finder['score[]'][j]- assign[i]['score[]'][j]);
