@@ -3,37 +3,48 @@ var path = require("path");
 
 var newFriend={};
 var bestMatch={};
+var difference=0;
 var number=0;
-var assign=0;
 // console.log(friends);
 
 module.exports = function(app){
 	app.get("/api/friends", function(req, res){
 		// req.json(bestie(req.body, friends));
-		newFriend = req.body
+		// newFriend = req.body
 		console.log(newFriend)
-		res.json(bestie(newFriend, friends));
+		// res.json(bestie(newFriend, friends));
+		res.json(newFriend)
 	});
 	app.post("/api/friends", function(req, res){
-		res.json(friends)
-		console.log(res.body)
+		console.log("working?", req.body)
+		var compare = compares(newFriend, friends)
+		var newFriend = friends
+		newFriend.totalScore = compareScore(findingfriends);
+		compare = compares(newFriend, friends)
 	});
 };
 function bestie(finder, assign){
-	for(var i=0; i<friends.length; i++){
+	for(var i=0; i<assign.length; i++){
 		difference=0;
-		for(var j=0; j<friends[i]['score[]'].length; j++){
+		for(var j=0; j<assign[i]['score[]'].length; j++){
 			difference=difference+Math.abs(finder['score[]'][j]- assign[i]['score[]'][j]);
        }
         if (i===0) {
-            bestMatch=asign[i];
-            number=counter;
+            bestMatch=assign[i];
+            number=difference;
         }
-        else if(counter<number){
-            bestMatch=asign[i];
-            number=counter;
+        else if(difference<number){
+            bestMatch=assign[i];
+            number=difference;
         }
     }
 
     return(bestMatch);
+}
+function compares(findingfriends, people){
+	var closestNumber;
+	var newBestie;
+};
+function compareScore(findingfriends){
+
 }
