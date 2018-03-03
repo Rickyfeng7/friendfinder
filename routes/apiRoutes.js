@@ -9,24 +9,24 @@ var number=0;
 
 module.exports = function(app){
 	app.get("/api/friends", function(req, res){
-		// req.json(bestie(req.body, friends));
+		req.json(bestie(res.body, friends));
 		// newFriend = req.body
 		console.log(newFriend)
 		// res.json(bestie(newFriend, friends));
 		res.json(newFriend)
 	});
 	app.post("/api/friends", function(req, res){
-		console.log("working?", req.body)
+		console.log("working?19", req.body)
 		var compare = compares(newFriend, friends)
 		var newFriend = friends
-		newFriend.totalScore = compareScore(findingfriends);
+		newFriend.score = compareScore(newFriend);
 		compare = compares(newFriend, friends)
 	});
 };
 function bestie(finder, assign){
 	for(var i=0; i<assign.length; i++){
 		difference=0;
-		for(var j=0; j<assign[i]['score[]'].length; j++){
+		for(var j=0; j<assign[i]['score[i]'].length; j++){
 			difference=difference+Math.abs(finder['score[]'][j]- assign[i]['score[]'][j]);
        }
         if (i===0) {
