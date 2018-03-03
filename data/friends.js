@@ -11,7 +11,7 @@ var friends = [
 		quote:"If you dont live, eat, breathe, football, then youre not a true football player. You just wear the jersey."
 	},{
 		name:"manny pacquiao",
-		photo:"hhttp://i.huffpost.com/gen/4006524/thumbs/o-MANNY-PACQUIAO-570.jpg",
+		photo:"http://i.huffpost.com/gen/4006524/thumbs/o-MANNY-PACQUIAO-570.jpg",
 		"value[]":[2,1,2,3,1,1,3,3,3,1],
 		quote:"I was just doing my job in the ring and doing my best to make people happy."
 	},{
