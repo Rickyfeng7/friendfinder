@@ -202,8 +202,12 @@
 // console.log(newSubmission);
 	$("#submit").on("click", function(){	
 		event.preventDefault();
+
+	newSubmission.name = $("#name-input").val();
+	newSubmission.quote = $("#quote-input").val();
+	newSubmission.image = $("#photo-input").val();
+
 		console.log("im clicked")
-		var name = newSubmission.name = $("#name").val().trim();
 		for(var i=0; i<=10; i++){
 		var value= $("#question" + i).val();
 		newSubmission.value.push(value);
@@ -213,14 +217,15 @@
 
 	});
 		console.log(newSubmission)
-	function sendData(){
+	function sendData(data){
     // console.log(friends)
     $.post("/api/friends", newSubmission,  function(data){
-
+    	console.log("219 " + data)
+    	createModal(data)
     });
 
     function createModal(data){
-    	console.log(data)
+    	console.log(data.name)
 
 		var name=$("<h3>");
 		name.text(data.name);

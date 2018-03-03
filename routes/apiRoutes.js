@@ -1,5 +1,4 @@
 var friends = require("../data/friends.js");
-var path = require("path");
 
 var newFriend={};
 var bestMatch={};
@@ -8,43 +7,38 @@ var number=0;
 // console.log(friends);
 
 module.exports = function(app){
-	app.get("/api/friends", function(req, res){
-		req.json(bestie(res.body, friends));
-		// newFriend = req.body
-		console.log(newFriend)
-		// res.json(bestie(newFriend, friends));
-		res.json(newFriend)
-	});
 	app.post("/api/friends", function(req, res){
-		console.log("working?19", req.body)
-		var compare = compares(newFriend, friends)
-		var newFriend = friends
-		newFriend.score = compareScore(newFriend);
-		compare = compares(newFriend, friends)
+		// console.log("working?12", req.body)
+		newFriend=req.body;
+		// console.log("14", req.body)
+		// console.log("14"+newFriend);
+		res.json(bestie(newFriend, friends))
 	});
+	app.get("/api/friends", function(req, res) {
+		res.json(tableData);
+	});
+
+	app.post("/api/tables", function(req, res) {
+
+		console.log(res.body);
+	});
+
 };
-function bestie(finder, assign){
-	for(var i=0; i<assign.length; i++){
+function bestie(finder, asign){
+	// console.log(asign)
+	for(var i = 0; i < asign.length; i++){
 		difference=0;
-		for(var j=0; j<assign[i]['score[i]'].length; j++){
-			difference=difference+Math.abs(finder['score[]'][j]- assign[i]['score[]'][j]);
-       }
+       		for (var j = 0; j < asign[i]['value[]'].length; j++) {difference=difference+Math.abs(finder['value[]'][j]-asign[i]['value[]'][j]);
+		}
         if (i===0) {
-            bestMatch=assign[i];
+            bestMatch=asign[i];
             number=difference;
         }
         else if(difference<number){
-            bestMatch=assign[i];
+            bestMatch=asign[i];
             number=difference;
         }
     }
 
     return(bestMatch);
-}
-function compares(findingfriends, people){
-	var closestNumber;
-	var newBestie;
-};
-function compareScore(findingfriends){
-
 }
